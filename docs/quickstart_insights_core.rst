@@ -117,7 +117,7 @@ Rule Development
 ================
 
 From your project root directory create a directory for your rules::
-    
+
     (insights-core)[userone@hostone project_dir/insights-core]$ cd ..
     (insights-core)[userone@hostone project_dir]$ mkdir myrules
     (insights-core)[userone@hostone project_dir]$ cd myrules
@@ -175,11 +175,11 @@ Create a sample rule called ``hostname_rel.py`` in the ``myrules`` directory:
    `code for hostname_rel.py <https://github.com/RedHatInsights/insights-core/blob/master/examples/rules/hostname_rel.py>`_
 
 Now you can use Insights to evaluate your rule by running your rule script::
-    
+
     (insights-core)[userone@hostone project_dir/myrules]$ python hostname_rel.py
-    
+
 Depending upon the system you are using you will see several lines of
-output ending with a your rule results that should look something like this::
+output ending with your rule results that should look something like this::
 
    ---------
    Progress:
