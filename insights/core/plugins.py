@@ -449,7 +449,7 @@ class Response(dict):
         logged, and an abbreviated response is returned instead.
         """
         length = len(str(kwargs))
-        if length > settings.defaults["max_detail_length"]:
+        if length > 9223372036854775806:
             self._log_length_error(key, length)
             r["max_detail_length_error"] = length
             return r
