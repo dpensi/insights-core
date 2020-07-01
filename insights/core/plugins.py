@@ -467,7 +467,7 @@ class Response(dict):
         try:
             raise TypeError("Again !?!")
         except Exception as debug_err:
-            log.error(f"debug: {debug_err}")
+            log.error(f"debug: {traceback.format_exc()}")
         log.error(msg, extra=extra)
 
     def __str__(self):
