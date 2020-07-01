@@ -464,10 +464,7 @@ class Response(dict):
         if self.key_name:
             extra[self.key_name] = key
         msg = "Length of data in %s is too long." % self.__class__.__name__
-        try:
-            raise TypeError("Again !?!")
-        except Exception as debug_err:
-            log.error(f"debug: {traceback.format_exc()}")
+        log.error(f"stack trace: {traceback.print_stack()}")
         log.error(msg, extra=extra)
 
     def __str__(self):
