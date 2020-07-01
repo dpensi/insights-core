@@ -449,10 +449,10 @@ class Response(dict):
         logged, and an abbreviated response is returned instead.
         """
         length = len(str(kwargs))
-        # if length > 9223372036854775806:
-        #     self._log_length_error(key, length)
-        #     r["max_detail_length_error"] = length
-        #     return r
+        if length > settings.defaults["max_detail_length"]:
+            self._log_length_error(key, length)
+            r["max_detail_length_error"] = length
+            return r
         return kwargs
 
     def _log_length_error(self, key, length):
@@ -464,6 +464,10 @@ class Response(dict):
         if self.key_name:
             extra[self.key_name] = key
         msg = "Length of data in %s is too long." % self.__class__.__name__
+        try:
+            raise TypeError("Again !?!")
+        except Exception as debug_err:
+            log.error(f"debug: {debug_err}")
         log.error(msg, extra=extra)
 
     def __str__(self):
